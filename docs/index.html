@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Category-Guided Candidate Selection </title>
+<meta name="description" content="Category-guided candidate selection for Japanese grammatical error correction: code, adapter and selector weights, and numerical results.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav"><a class="brand" href="#top">CAMC<span>—</span>JL</a><nav aria-label="Main navigation"><a href="#abstract">Abstract</a><a href="#method">Method</a><a href="#results">Results</a><a href="#reproduce">Reproduce</a></nav></header>
+<main id="top">
+<section class="hero">
+<p class="eyebrow">Japanese NLP · Letter · 2026</p>
+<h1>Fix the interval.<br>Then choose the replacement.</h1>
+<p class="paper-title">Category-Guided Candidate Selection for Japanese Grammatical Error Correction</p>
+<p class="lead">Yan Li (Bengbu University) and Xubo Fang (Kanazawa University)</p>
+<div class="actions"><a class="button primary" href="https://github.com/YanLiBengbu/category-guided-selection">Code &amp; results ↗</a><a class="button" href="https://github.com/YanLiBengbu/category-guided-selection/releases/tag/v1.0.0">Model weights v1.0.0 ↗</a><a class="button" href="https://github.com/YanLiBengbu/category-guided-selection/tree/main/data">CAMC-JL metadata ↗</a></div>
+<div class="stats"><div><strong>41.74<span>%</span></strong><span>ExactMatch with category-guided selection</span></div><div><strong>30.71<span>%</span></strong><span>top-beam rule of the base generator</span></div><div><strong>40.61<span>%</span></strong><span>strongest hosted LLM pipeline</span></div><div><strong>6 GB</strong><span>laptop GPU with 4-bit base models</span></div></div>
+</section>
+<section id="abstract">
+<div class="section-heading"><p class="eyebrow">01 / Abstract</p><h2>Selection at a fixed interval.</h2></div>
+<p class="section-lead">Category-conditioned Japanese grammatical error correction returns one erroneous interval and its replacement for a requested error category. However, a compact localizer trained on scarce learner annotations fixes the interval far more often than it supplies the reference replacement, whereas prompted large language models often miss the interval. Therefore, we propose category-guided candidate selection for a structured correction system in which a compact recurrent frontend fixes one interval. A compact editor and two low-rank-adapted 4-billion-parameter generators, one prompted with category guidance and retrieved demonstrations, propose replacements for that interval. A conditional logit selector scores the pooled candidates with generator likelihoods, fluency differences under two base language models, and indicators of whether a candidate changes the grammar that the category names. On a test set of 559 learner-writing examples, selection raised exact span-and-replacement agreement from 30.71% with the top-beam rule to 41.74%, on par with the 40.61% of the strongest hosted large language model pipeline, whose interval agreement it exceeded by 18.66 points. Locally run 4-billion-parameter generators thus reach the exact agreement of hosted pipelines.</p>
+</section>
+<section class="tinted" id="method">
+<div class="section-heading"><p class="eyebrow">02 / Method</p><h2>One interval, pooled candidates, one choice.</h2></div>
+<div class="results-grid"><div>
+<h3>Compact frontend</h3><p>A bidirectional GRU and sparse localizers fix one interval of the requested category; a context gate adapts the fusion to shortened inputs.</p>
+<h3>Candidates</h3><p>A compact editor and two LoRA-adapted Qwen3-4B generators propose replacements for that interval. One generator receives the base prompt; the other receives a category guidance sentence and four retrieved development corrections of the same category.</p>
+<h3>Selector</h3><p>A conditional logit selector chooses among the pooled candidates with generator likelihoods, fluency differences under two base language models, category-consistency indicators, and a register feature.</p>
+</div><figure><a href="assets/concept.png"><img src="assets/concept.png" alt="Learner text and error category pass through a compact frontend that fixes one interval; a compact editor and two generators propose replacements; a category-guided selector chooses one." loading="lazy"></a><figcaption>Structured localization followed by category-guided selection</figcaption></figure></div>
+</section>
+<section id="results">
+<div class="section-heading"><p class="eyebrow">03 / Results</p><h2>Exact agreement of a hosted pipeline, run locally.</h2></div>
+<div class="results-grid"><div><p class="section-lead">On the 559 CAMC-JL test examples, category-guided selection raised ExactMatch from <strong>30.71%</strong> with the top-beam rule of the base generator to <strong>41.74%</strong>, on par with <strong>40.61%</strong> for evidence-gated LGR-MAS with Qwen3.7 Max, the strongest of fifteen released hosted runs.</p><p>SLA-JEC matched the reference interval in 76.45% of the cases and the hosted pipeline in 57.78%. The ablation attributes the largest effects to the learned weights and to the guided generator, whose retrieved demonstrations carry more of the gain than a second generator.</p><p class="note">Paired differences from the hosted pipeline, with six-metric simultaneous 95% intervals from 20,000 source-unit cluster resamples: ExactMatch +1.13 points [−4.80, 7.07]; SpanMatch +18.66 points [11.69, 25.75].</p></div>
+<div class="table-wrap"><table><caption>Test results on CAMC-JL · three-seed mean for neural systems</caption><thead><tr><th scope="col">System</th><th scope="col">SpanMatch</th><th scope="col">ExactMatch</th></tr></thead><tbody>
+<tr class="selected"><td>Category-guided selection</td><td>76.45%</td><td>41.74%</td></tr>
+<tr><td>Two generators, mean likelihood</td><td>76.45%</td><td>35.78%</td></tr>
+<tr><td>Auxiliary 4B, top-beam rule (BF16)</td><td>76.45%</td><td>33.04%</td></tr>
+<tr><td>Base generator, top-beam rule (4-bit)</td><td>76.45%</td><td>30.71%</td></tr>
+<tr><td>Evidence-gated LGR-MAS, Qwen3.7 Max</td><td>57.78%</td><td>40.61%</td></tr>
+<tr><td>Fine-tuned Japanese T5</td><td>62.55%</td><td>17.83%</td></tr>
+<tr><td>LGR-MAS, local Qwen3-4B</td><td>21.11%</td><td>10.91%</td></tr>
+</tbody></table><p class="small">All six metrics, intervals, ablations, and control generators are in the repository folder <code>results</code>.</p></div></div>
+</section>
+<section class="tinted" id="reproduce">
+<div class="section-heading"><p class="eyebrow">04 / Reproduce</p><h2>Code, adapters and a frozen selector.</h2></div>
+<p class="section-lead">The repository contains the code for generator training, candidate scoring, selection, ablation, controls, and external baselines, the compact frontend, the frozen selector configuration and weights, the CAMC-JL metadata, and the numerical results. Release v1.0.0 holds the adapter tensors and the frontend files with SHA-256 checksums in <code>WEIGHTS.json</code>.</p>
+<div class="dataset-grid"><div><h3>Select and report</h3><pre><code>python scripts/download_weights.py
+cd code
+python apply_rerank_test.py ../results/selector_final.json ../results/final_selector
+python ablation.py ../results/selector_final.json ../results/ablation.json
+python report_test.py ../results/final_selector_matrix.npy</code></pre><p class="small">The README lists the full order of runs, from the learner stage of both generators to cross-scoring and fluency scoring.</p></div><div><h3>Data</h3><p>Learner texts, reference corrections, and generated candidates are not redistributed. The CAMC-JL metadata and the per-example results align through the public release IDs; the texts can be rebuilt from the Natane and ICJS/TUFS corpora as described in the README.</p></div></div>
+<div class="actions"><a class="button primary" href="https://github.com/YanLiBengbu/category-guided-selection/releases/tag/v1.0.0">Download weights ↗</a><a class="button" href="https://github.com/YanLiBengbu/category-guided-selection#readme">README ↗</a></div>
+</section>
+<section class="cite"><h2>Cite this work</h2><p>Y. Li and X. Fang, “Category-Guided Candidate Selection for Japanese Grammatical Error Correction,” manuscript, 2026. Code, weights and results: https://github.com/YanLiBengbu/category-guided-selection, release v1.0.0.</p></section>
+</main>
+<footer><a class="brand" href="#top">CAMC<span>—</span>JL</a><p>Code: MIT · Adapter and selector weights: Apache 2.0 · Numerical results: CC BY 4.0</p></footer>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+ "frozen": "2026-10-11, chosen on out-of-fold development pools before any test-side selector run",
+ "dev_file": "results/cv_cross3_lm2.jsonl",
+ "test_file": "results/test_cross2_lm2.jsonl",
+ "dev_runs": [
+  "cv/orig_k0",
+  "cv/guided_k4"
+ ],
+ "test_runs": [
+  "final/orig_k0",
+  "final/guided_k4"
+ ],
+ "morph": false,
+ "lm": [
+  "qwen3",
+  "sarashina"
+ ],
+ "l2": 0.3,
+ "dev_result": {
+  "SpanMatch": 70.5,
+  "SpanOverlapScore": 72.47,
+  "RevisionMatch": 36.0,
+  "RevisionSimilarity": 55.31,
+  "SoftMatch": 53.26,
+  "ExactMatch": 36.0
+ },
+ "test_note": "test pool scored only for the frozen generators (union of their valid beams and the compact candidate)"
+}

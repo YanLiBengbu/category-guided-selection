@@ -1,0 +1,50 @@
+{
+ "weights": {
+  "ll": 0.10248521797243884,
+  "ll_gap": 0.10229671058903189,
+  "margin": 0.10229671058902405,
+  "edit": -1.9483583184120499,
+  "compact": 0.356216386087798,
+  "rank": -0.5304083308992628,
+  "marker": 0.6706467759671432,
+  "morph": 0.0,
+  "mem_pair": 0.7211307875793362,
+  "mem_rev": 0.56608909464257,
+  "off_cat": -0.9104727675139563,
+  "register": 0.939843466355583,
+  "on_cat": 1.0674041581597236,
+  "lm_qwen3": 1.134672466355311,
+  "lm_sarashina": 0.2827431207816018,
+  "margin_generator1": 0.05191363465121504,
+  "margin_generator2": 0.15267978652684558
+ },
+ "config": {
+  "frozen": "2026-10-11, chosen on out-of-fold development pools before any test-side selector run",
+  "dev_file": "results/cv_cross3_lm2.jsonl",
+  "test_file": "results/test_cross2_lm2.jsonl",
+  "dev_runs": [
+   "cv/orig_k0",
+   "cv/guided_k4"
+  ],
+  "test_runs": [
+   "final/orig_k0",
+   "final/guided_k4"
+  ],
+  "morph": false,
+  "lm": [
+   "qwen3",
+   "sarashina"
+  ],
+  "l2": 0.3,
+  "dev_result": {
+   "SpanMatch": 70.5,
+   "SpanOverlapScore": 72.47,
+   "RevisionMatch": 36.0,
+   "RevisionSimilarity": 55.31,
+   "SoftMatch": 53.26,
+   "ExactMatch": 36.0
+  },
+  "test_note": "test pool scored only for the frozen generators (union of their valid beams and the compact candidate)",
+  "margin_generators": "margin_generator1 and margin_generator2 follow the order of dev_runs and test_runs"
+ }
+}

@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this software, model weights, or results, please cite them as below."
+title: "Category-Guided Candidate Selection for Japanese Grammatical Error Correction"
+authors:
+  - family-names: Li
+    given-names: Yan
+    affiliation: "Department of Foreign Languages, Bengbu University"
+  - family-names: Fang
+    given-names: Xubo
+    affiliation: "Graduate School of Natural Science and Technology, Kanazawa University"
+version: "v1.0.0"
+date-released: "2026-10-17"
+repository-code: "https://github.com/YanLiBengbu/category-guided-selection"
+url: "https://yanlibengbu.github.io/category-guided-selection/"
+license: MIT

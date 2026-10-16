@@ -1,0 +1,26 @@
+{
+  "model": "Frozen context-gated GRU/linear frontend",
+  "seeds": [
+    20260927,
+    20260928,
+    20260929
+  ],
+  "default_seed_selected_before_historical": 20260927,
+  "total_parameters_and_coefficients": 4234774,
+  "original_frontend_values": 3565554,
+  "crop_locator_values": 669195,
+  "gate_values": 25,
+  "files_sha256": {
+    "README.md": "10f206eae2c2b11ce6045a15f93fb7eece40ed04435738d48146e72144b10148",
+    "base_predict.py": "ec1deb63d3b4d573e2d82a15c66881acf660ebc416e415bb3b8daf3c45e74411",
+    "crop_gate.npz": "6308b9f375d607eb5d554c4b97fb4b38e61436e1b01a2c0ef270966fac92e341",
+    "gru.py": "909b6be5cb4e011f3a5840bb6e46efdaa7fcd30b6e13c104c9792ebdcb0e5c53",
+    "gru_seed_20260927.pt": "e14807739dfab9f9fd01bc5fdb5ea0caf6ae71cfcea39c1ed94255c83267cd1c",
+    "gru_seed_20260928.pt": "1a04c94a1cda072ca1dab602b741e06b119ed5648335a526a0aaa9ce41201c3e",
+    "gru_seed_20260929.pt": "bcfa065d7711ec25b643771b26442094ea0b5332660a7f2cd910528a5bd2bc90",
+    "linear.npz": "71b09f4036088b13a2ad8a0b662cf24215f67c0da76b8d5511dfac8beedc5e05",
+    "predict.py": "8306c4cafd0d594dc77bb14da49e9542b648ad6a846507b3df5ba4c6aeaa15a9"
+  },
+  "training_data_included": false,
+  "large_language_model_included": false
+}

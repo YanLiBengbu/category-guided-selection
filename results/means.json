@@ -1,0 +1,90 @@
+{
+ "Category-guided selection": {
+  "SpanMatch": 76.45,
+  "SpanOverlapScore": 77.9,
+  "RevisionMatch": 41.74,
+  "RevisionSimilarity": 59.61,
+  "SoftMatch": 57.96,
+  "ExactMatch": 41.74
+ },
+ "Base generator, top-beam rule (4-bit)": {
+  "SpanMatch": 76.45,
+  "SpanOverlapScore": 77.9,
+  "RevisionMatch": 30.77,
+  "RevisionSimilarity": 52.74,
+  "SoftMatch": 51.12,
+  "ExactMatch": 30.71
+ },
+ "Guided generator, top-beam rule (4-bit)": {
+  "SpanMatch": 76.45,
+  "SpanOverlapScore": 77.9,
+  "RevisionMatch": 32.14,
+  "RevisionSimilarity": 53.86,
+  "SoftMatch": 52.09,
+  "ExactMatch": 31.96
+ },
+ "Two generators, mean likelihood (4-bit)": {
+  "SpanMatch": 76.45,
+  "SpanOverlapScore": 77.9,
+  "RevisionMatch": 35.78,
+  "RevisionSimilarity": 54.87,
+  "SoftMatch": 53.25,
+  "ExactMatch": 35.78
+ },
+ "Control: second base generator": {
+  "SpanMatch": 76.45,
+  "SpanOverlapScore": 77.9,
+  "RevisionMatch": 38.46,
+  "RevisionSimilarity": 57.17,
+  "SoftMatch": 55.69,
+  "ExactMatch": 38.46
+ },
+ "Control: guided prompt without demonstrations": {
+  "SpanMatch": 76.45,
+  "SpanOverlapScore": 77.9,
+  "RevisionMatch": 38.94,
+  "RevisionSimilarity": 57.47,
+  "SoftMatch": 55.93,
+  "ExactMatch": 38.94
+ },
+ "Control: guided prompt without guidance sentence": {
+  "SpanMatch": 76.45,
+  "SpanOverlapScore": 77.9,
+  "RevisionMatch": 40.19,
+  "RevisionSimilarity": 58.55,
+  "SoftMatch": 56.92,
+  "ExactMatch": 40.19
+ },
+ "Fine-tuned Japanese T5": {
+  "SpanMatch": 62.55,
+  "SpanOverlapScore": 63.26,
+  "RevisionMatch": 17.89,
+  "RevisionSimilarity": 41.45,
+  "SoftMatch": 39.26,
+  "ExactMatch": 17.83
+ },
+ "DeBERTa localizer, base generator (4-bit)": {
+  "SpanMatch": 22.06,
+  "SpanOverlapScore": 27.73,
+  "RevisionMatch": 11.27,
+  "RevisionSimilarity": 24.22,
+  "SoftMatch": 17.4,
+  "ExactMatch": 10.55
+ },
+ "Direct prompting, local Qwen3-4B": {
+  "SpanMatch": 9.66,
+  "SpanOverlapScore": 15.66,
+  "RevisionMatch": 2.15,
+  "RevisionSimilarity": 14.84,
+  "SoftMatch": 7.2,
+  "ExactMatch": 1.79
+ },
+ "LGR-MAS, local Qwen3-4B": {
+  "SpanMatch": 21.11,
+  "SpanOverlapScore": 25.38,
+  "RevisionMatch": 11.63,
+  "RevisionSimilarity": 26.45,
+  "SoftMatch": 16.26,
+  "ExactMatch": 10.91
+ }
+}

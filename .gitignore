@@ -1,0 +1,8 @@
+__pycache__/
+*.part
+models/
+data/*.jsonl
+data/orig4b*/
+weights/**/adapter_model.safetensors
+frontend/*.npz
+frontend/*.pt

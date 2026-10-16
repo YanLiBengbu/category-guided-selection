@@ -1,0 +1,112 @@
+{
+  "release_tag": "v1.0.0",
+  "base_repository": "Qwen/Qwen3-4B-Instruct-2507",
+  "base_revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+  "assets": [
+    {
+      "name": "cgs_auxiliary_stage.safetensors",
+      "destination": "weights/auxiliary_stage/adapter_model.safetensors",
+      "sha256": "e0b97303094f3ff3891ad24996d07d86533cf4644ea438ac259ca6827de534b6"
+    },
+    {
+      "name": "cgs_base_generator_seed20260927.safetensors",
+      "destination": "weights/base_generator/seed20260927/adapter_model.safetensors",
+      "sha256": "25808c649a8d9d6321c05f1a49a16824cb301afafcba46d3e2dde103ba345908"
+    },
+    {
+      "name": "cgs_base_generator_seed20260928.safetensors",
+      "destination": "weights/base_generator/seed20260928/adapter_model.safetensors",
+      "sha256": "33ee334b937a36c7aeedd646ce521db129ff8b48ccc8885dcdbd29fb3efb3a84"
+    },
+    {
+      "name": "cgs_base_generator_seed20260929.safetensors",
+      "destination": "weights/base_generator/seed20260929/adapter_model.safetensors",
+      "sha256": "98756352082c7d215e736d40edbd1bc9782092ff00491441c49c0377973aa644"
+    },
+    {
+      "name": "cgs_control_demonstrations_only_seed20260927.safetensors",
+      "destination": "weights/control_demonstrations_only/seed20260927/adapter_model.safetensors",
+      "sha256": "1f2da88388da4636f19712d4dc952ec8cf768c6bf943574532e9c3a4dad99503"
+    },
+    {
+      "name": "cgs_control_demonstrations_only_seed20260928.safetensors",
+      "destination": "weights/control_demonstrations_only/seed20260928/adapter_model.safetensors",
+      "sha256": "79aa4442892fe1ac189fb7f4f050067bb1508cd96047949d20930d8f6f71fbcc"
+    },
+    {
+      "name": "cgs_control_demonstrations_only_seed20260929.safetensors",
+      "destination": "weights/control_demonstrations_only/seed20260929/adapter_model.safetensors",
+      "sha256": "ef99087e348c895fd10a2fdf6bbc8bd0ab13b4cf40553a40a9294aaf98e968cc"
+    },
+    {
+      "name": "cgs_control_guidance_only_seed20260927.safetensors",
+      "destination": "weights/control_guidance_only/seed20260927/adapter_model.safetensors",
+      "sha256": "a04ea71c990a42875e312dcffff9961ae22e2c60a379056d9deeba0e7922959f"
+    },
+    {
+      "name": "cgs_control_guidance_only_seed20260928.safetensors",
+      "destination": "weights/control_guidance_only/seed20260928/adapter_model.safetensors",
+      "sha256": "98ea0cc8fafc13e4eeaaf2eb7c7132ea686770d2946dbf4b9b384974cd221fcf"
+    },
+    {
+      "name": "cgs_control_guidance_only_seed20260929.safetensors",
+      "destination": "weights/control_guidance_only/seed20260929/adapter_model.safetensors",
+      "sha256": "812e21448abfeccf86e4cb7e3cb74793578190a264630d78558e2a51fe2add96"
+    },
+    {
+      "name": "cgs_control_second_base_generator_seed20260927.safetensors",
+      "destination": "weights/control_second_base_generator/seed20260927/adapter_model.safetensors",
+      "sha256": "062c09d163a2bc9bebf04753497c71b60d5818abbac8732d00edab0c115ce6d8"
+    },
+    {
+      "name": "cgs_control_second_base_generator_seed20260928.safetensors",
+      "destination": "weights/control_second_base_generator/seed20260928/adapter_model.safetensors",
+      "sha256": "79d9fa48318477fba49bf96e469b16f25c598e69bcad68d258ab937a20c17c38"
+    },
+    {
+      "name": "cgs_control_second_base_generator_seed20260929.safetensors",
+      "destination": "weights/control_second_base_generator/seed20260929/adapter_model.safetensors",
+      "sha256": "6d21f806ccda443d31cd1f76d345e41c9c8910b1959705c6d863064a93943a24"
+    },
+    {
+      "name": "cgs_guided_generator_seed20260927.safetensors",
+      "destination": "weights/guided_generator/seed20260927/adapter_model.safetensors",
+      "sha256": "118075e8349b8d1c4ebe0d76b6675107ecd8f958be2585938d8c31bafe95ea16"
+    },
+    {
+      "name": "cgs_guided_generator_seed20260928.safetensors",
+      "destination": "weights/guided_generator/seed20260928/adapter_model.safetensors",
+      "sha256": "4323024d9f977051c027eee6b603228222eec43fb5c21009496f46fbc3ed2468"
+    },
+    {
+      "name": "cgs_guided_generator_seed20260929.safetensors",
+      "destination": "weights/guided_generator/seed20260929/adapter_model.safetensors",
+      "sha256": "90b26339aacc2f5342de3408e14548eace4884a2a4a7ed644383f958b116e1a2"
+    },
+    {
+      "name": "crop_gate.npz",
+      "destination": "frontend/crop_gate.npz",
+      "sha256": "6308b9f375d607eb5d554c4b97fb4b38e61436e1b01a2c0ef270966fac92e341"
+    },
+    {
+      "name": "linear.npz",
+      "destination": "frontend/linear.npz",
+      "sha256": "71b09f4036088b13a2ad8a0b662cf24215f67c0da76b8d5511dfac8beedc5e05"
+    },
+    {
+      "name": "gru_seed_20260927.pt",
+      "destination": "frontend/gru_seed_20260927.pt",
+      "sha256": "e14807739dfab9f9fd01bc5fdb5ea0caf6ae71cfcea39c1ed94255c83267cd1c"
+    },
+    {
+      "name": "gru_seed_20260928.pt",
+      "destination": "frontend/gru_seed_20260928.pt",
+      "sha256": "1a04c94a1cda072ca1dab602b741e06b119ed5648335a526a0aaa9ce41201c3e"
+    },
+    {
+      "name": "gru_seed_20260929.pt",
+      "destination": "frontend/gru_seed_20260929.pt",
+      "sha256": "bcfa065d7711ec25b643771b26442094ea0b5332660a7f2cd910528a5bd2bc90"
+    }
+  ]
+}
