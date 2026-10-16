@@ -3,7 +3,7 @@
 Inputs: the seed-averaged selector matrix from apply_rerank_test.py (TEST_IDS order), its per-seed choices
         (same prefix, _choices.jsonl), and results/ablation_learned_matrix.npy from ablation.py (the same
         two-generator pool ranked by the mean likelihood alone).
-Outputs: results/report_test.json (all numbers quoted in the paper) and paper/tables/main_table.tex.
+Outputs: results/report_test.json (all numbers quoted in the paper) and tables/main_table.tex.
 Usage: python report_test.py SELECTOR_MATRIX.npy
 """
 import json
@@ -98,7 +98,7 @@ def main(path):
     out['both_span'] = dict(n=int(both.sum()), selector_rm=float(100 * sel[both, 2].mean()),
                             hosted_rm=float(100 * host[best_host][both, 2].mean()))
     json.dump(out, open(ROOT / 'results' / 'report_test.json', 'w', encoding='utf-8'), indent=1)
-    tables = ROOT.parent / 'paper' / 'tables'
+    tables = ROOT / 'tables'
     tables.mkdir(exist_ok=True)
     main_table([(g, name, mat) for g, name, mat, _ in external]
                + [('Ours', TOP_BEAM_4BIT, top4), ('Ours', BASE_TOP, base_top), ('Ours', GUIDED_TOP, guided_top),
