@@ -1,6 +1,6 @@
 # Category-Guided Candidate Selection for Japanese Grammatical Error Correction
 
-Code, model weights, and numerical results for the letter **"Category-Guided Candidate Selection for Japanese
+Code, model weights, and numerical results for the paper **"Category-Guided Candidate Selection for Japanese
 Grammatical Error Correction"** by Yan Li and Xubo Fang.
 
 [Project page](https://yanlibengbu.github.io/category-guided-selection/) · [Model weights (release v1.0.0)](https://github.com/YanLiBengbu/category-guided-selection/releases/tag/v1.0.0) ·
